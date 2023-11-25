@@ -15,16 +15,54 @@
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
 
+    .body {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
     .navbar-icontext {
       margin-left: 10px;
       margin-right: 10px;
     }
-  </style>
+
+    .movie-container {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+
+    #inputSearch {
+      background-image: url('/Assets/Search.svg');
+      background-position: 10px 17px;
+      background-repeat: no-repeat;
+      width: 100%;
+      padding: 12px 20px 12px 40px;
+    }
+    
+    .suggestion-popup {
+      position: absolute;
+      border: #2CC7FF 1px solid;
+      max-height: 200px;
+      overflow-y: auto;
+      width: 25%;
+      top: 82%;
+      background-color: #fff;
+      z-index: 1000;
+      display: none;
+      border-radius: 8px 8px 8px 8px;
+    }
+    .suggestion-item {
+      padding: 10px;
+      cursor: pointer;
+    }
+    .suggestion-item:hover {
+      background-color: #f0f0f0;
+    }
+    </style>
 
 </head>
 
-<body>
-  <div>
+<body style="background-color: #D9D9D9;">
+
+  <header>
     <nav class="navbar navbar-expand-lg">
       <div class="container fs-4">
         <a class="navbar-brand" href="index.html">
@@ -68,14 +106,14 @@
             </li>
             <li class="nav-item">
               <form class="d-flex align-items-center" role="search">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" >
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                </svg>
-                <input class="form-control" type="search" placeholder="Buscar Pelicula..." aria-label="Search" style="margin-right: 10px; margin-left: 10px;">
+
+                <input id="inputSearch" class="form-control" type="search"
+                  placeholder="Buscar Pelicula..." aria-label="Search" style="margin-right: 10px; ">
+                  <div class="suggestion-popup" id="suggestionPopup"></div>
               </form>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center" href="#">
+              <a class="nav-link d-flex align-items-center" href="/login.html">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
                   class="bi bi-person-circle" viewBox="0 0 16 16">
                   <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
@@ -89,13 +127,166 @@
         </div>
       </div>
     </nav>
-  </div>
+  </header>
+
+  <main class="container" style="background-color: #FBFBFB;">
+    <div class="px-4 pt-5 text-center mb-2">
+      <div id="carouselMovies" class="carousel slide rounded" style="box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.25);">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#ccarouselMovies" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselMovies" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselMovies" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner rounded">
+          <div class="carousel-item active">
+            <img src="/Assets/Landscape/FNAF.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/Assets/Landscape/HungerGames.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/Assets/Landscape/Napoleon.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselMovies" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselMovies" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="movie-container">
+      <div class="mt-5 text-left">
+        <h1 class="text-left">CARTELERA</h1>
+      </div>
+      <div class="row align-items align-items-end">
+        <div class="col-xs-2 col-sm-4 col-md-4 col-lg-3 pb-4">
+          <div class="card">
+            <p class="card-header fs-5 text-center" style="background-color: #8de1ff;">ESTRENO</p>
+            <img src="/Assets/Cards/NapoleonCard.jpg" class="card-img-top rounded-0" alt="...">
+            <a href="#" class="stretched-link"></a>
+            <a class="card-footer fs-5 text-center" style="background-color: #F380AB;">Ver Horarios</a>
+          </div>
+        </div>
+        <div class="col-xs-2 col-sm-4 col-md-4 col-lg-3 pb-4">
+          <div class="card">
+            <p class="card-header fs-5 text-center" style="background-color: #8de1ff;">ESTRENO</p>
+            <img src="/Assets/Cards/HungerGamesCard.jpg" class="card-img-top rounded-0" alt="...">
+            <a href="#" class="stretched-link"></a>
+            <a class="card-footer fs-5 text-center" style="background-color: #F380AB;">Ver Horarios</a>
+          </div>
+        </div>
+        <div class="col-xs-2 col-sm-4 col-md-4 col-lg-3 pb-4">
+          <div class="card">
+            <img src="/Assets/Cards/FNAFCard.jpg" class="card-img-top" alt="...">
+            <a href="#" class="stretched-link"></a>
+            <a class="card-footer fs-5 text-center" style="background-color: #F380AB;">Ver Horarios</a>
+          </div>
+        </div>
+        <div class="col-xs-2 col-sm-4 col-md-4 col-lg-3 pb-4">
+          <div class="card">
+            <img src="/Assets/Cards/YourNameCard.jpg" class="card-img-top " alt="...">
+            <a href="#" class="stretched-link"></a>
+            <a class="card-footer fs-5 text-center" style="background-color: #F380AB;">Ver Horarios</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <footer class="bd-footer py-4 py-md-5 mt-auto" style="background-color: #2CC7FF;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
+          <img src="Assets/Cinevana.png" height="60">
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
+          <h5 class="text-uppercase">Peliculas</h5>
+          <ul class="list-unstyled mb-0">
+            <li><a href="#" class="text-white">Cartelera</a></li>
+            <li><a href="#" class="text-white">Preventas</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
+          <h5 class="text-uppercase">Contacto</h5>
+          <ul class="list-unstyled mb-0">
+            <li><span class="text-white"> Telefono: 2222-2222</span></li>
+            <li><span class="text-white">Correo: contacto.ayuda@cinevana.cl</span></li>
+
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
+          <h5 class="text-uppercase">Redes Sociales</h5>
+          <ul class="list-unstyled mb-0">
+            <li><a href="#" class="text-white">Facebook</a></li>
+            <li><a href="#" class="text-white">Instagram</a></li>
+            <li><a href="#" class="text-white">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Simulated suggestion data
+    const suggestions = ['Five Nights At Freddys', 'Napoleon', 'Los Juegos del Hambre', 'Your Name'];
+    const img = ['/Assets/Cards/FNAFCard.jpg', '/Assets/Cards/NapoleonCard.jpg', '/Assets/Cards/HungerGamesCard.jpg', '/Assets/Cards/YourNameCard.jpg']
+    // Function to show suggestions
+    function showSuggestions(query) {
+      const suggestionPopup = $('#suggestionPopup');
+      suggestionPopup.empty();
+
+      suggestions.forEach(function(suggestion,index) {
+        if (suggestion.toLowerCase().includes(query.toLowerCase())) {
+          const suggestionItem = $('<div class="suggestion-item"><a href="#" style="text-decoration: none; color: #333"><img src="'+img[index]+'" height="60" class="px-2">' + suggestion + '</a></div>');
+          suggestionItem.click(function() {
+            $('#inputSearch').val(suggestion);
+            suggestionPopup.empty(); // Clear suggestions after selecting one
+          });
+          suggestionPopup.append(suggestionItem);
+        }
+      });
+
+      if (suggestionPopup.children().length > 0) {
+        suggestionPopup.show();
+      } else {
+        suggestionPopup.hide();
+      }
+    }
+
+    // Event listener for input changes
+    $('#inputSearch').on('input', function() {
+      const query = $(this).val();
+      showSuggestions(query);
+    });
+
+    // Event listener to hide suggestions when clicking outside the input and popup
+    $(document).on('click', function(event) {
+      const target = $(event.target);
+      if (!target.closest('.form-group').length) {
+        $('#suggestionPopup').hide();
+      }
+    });
+  });
+</script>
 </body>
 
-<meta http-equiv='cache-control' content='no-cache'> 
-<meta http-equiv='expires' content='0'> 
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
 <meta http-equiv='pragma' content='no-cache'>
+
 </html>
