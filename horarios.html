@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cinevana</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .navbar {
+            background-color: #8de1ff;
+            border-radius: 0px 0px 20px 20px;
+            box-shadow: 0px 8px 5px 0px rgb(0, 0, 0, 0.25);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .navbar-icontext {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .movie-container {
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+
+        #inputSearch {
+            background-image: url('Assets/Search.svg');
+            background-position: 10px 17px;
+            background-repeat: no-repeat;
+            width: 100%;
+            padding: 12px 20px 12px 40px;
+        }
+
+        .suggestion-popup {
+            position: absolute;
+            border: #2CC7FF 1px solid;
+            max-height: 200px;
+            overflow-y: auto;
+            width: 25%;
+            top: 82%;
+            background-color: #fff;
+            z-index: 1000;
+            display: none;
+            border-radius: 8px 8px 8px 8px;
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn-primary {
+            background-color: #F380AB;
+            border-color: #F380AB;
+
+        }
+    </style>
+
+</head>
+
+<body style="background-color: #D9D9D9;">
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container fs-4">
+                <a class="navbar-brand" href="index.html">
+                    <img src="./Assets/Cinevana.png" height="60" alt="Logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center" aria-current="page" href="index.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                                    class="bi bi-house-door" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z" />
+                                </svg>
+                                <span class="navbar-icontext">Inicio</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center" href="cartelera.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                                    class="bi bi-film" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z" />
+                                </svg>
+                                <span class="navbar-icontext">Cartelera</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center" href="preventas.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                                    class="bi bi-star" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                </svg>
+                                <span class="navbar-icontext">Preventas</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <form class="d-flex align-items-center" role="search">
+
+                                <input id="inputSearch" class="form-control" type="search"
+                                    placeholder="Buscar Pelicula..." aria-label="Search" style="margin-right: 10px; ">
+                                <div class="suggestion-popup" id="suggestionPopup"></div>
+                            </form>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center" href="/login.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                                    class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                    <path fill-rule="evenodd"
+                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                                </svg>
+                                <span class="navbar-icontext">Iniciar Sesion</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container" style="background-color: #FBFBFB;">
+        <div class="movie-container px-4 pt-3">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">Horarios</h1>
+                </div>
+            </div>
+            <div class="row" style="background-color: #8de1ff;">
+                <div class="col-6">
+                    <h2 id="movieTitle" class="text-left">Placeholder</h2>
+                </div>
+                <div class="col-6">
+                    <h2 class="text-center">Funciones</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container col-6">
+                    <div class="row py-3">
+                        <div class="col-6">
+                            <img id="movieImage" src="" height="400">
+                        </div>
+                        <div class="col-6">
+                            <h4 class="text-right">Terror | 1hrs 49 min | +14</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="text-left">Sinopsis</h3>
+                            <p class="text-justify">¿Podrás sobrevivir cinco noches? El terrorífico fenómeno del
+                                videojuego de terror
+                                se transforma en un escalofriante espectáculo cinematográfico. La película trata de un
+                                problemático guardia de seguridad que empieza a trabajar en Freddy Fazbear's Pizza.
+                                Mientras pasa su primera noche en el trabajo, se da cuenta de que el turno de noche en
+                                Freddy's no será tan fácil de superar.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container col-6 py-3">
+                    <div class="container" style="background-color: #D9D9D9;">
+                        <div class="container py-3">
+                            <h3 class="text-left">17 Diciembre</h3>
+                            <div class="row align-items-center flex">
+                                <h5 class="col-6">SUBTITULADA</h5>
+                                <ul class="col-6 justify-content-evenly">
+                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                </ul>
+                            </div>
+                            <div class="row align-items-center flex">
+                                <h5 class="col-6">DOBLADA</h5>
+                                <ul class="col-6 justify-content-evenly">
+                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="container py-3">
+                            <h3 class="text-left">18 Diciembre</h3>
+                            <div class="row align-items-center flex">
+                                <h5 class="col-6">SUBTITULADA</h5>
+                                <ul class="col-6 justify-content-evenly">
+                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                </ul>
+                            </div>
+                            <div class="row align-items-center flex">
+                                <h5 class="col-6">DOBLADA</h5>
+                                <ul class="col-6 justify-content-evenly">
+                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="container py-3">
+                            <h3 class="text-left">19 Diciembre</h3>
+                            <div class="row align-items-center flex">
+                                <h5 class="col-6">SUBTITULADA</h5>
+                                <ul class="col-6 justify-content-evenly">
+                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                </ul>
+                            </div>
+                            <div class="row align-items-center flex">
+                                <h5 class="col-6">DOBLADA</h5>
+                                <ul class="col-6 justify-content-evenly">
+                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="container py-3">
+                            <h3 class="text-left">20 Diciembre</h3>
+                            <div class="row align-items-center flex">
+                                <h5 class="col-6">SUBTITULADA</h5>
+                                <ul class="col-6 justify-content-evenly">
+                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                </ul>
+                            </div>
+                            <div class="row align-items-center flex">
+                                <h5 class="col-6">DOBLADA</h5>
+                                <ul class="col-6 justify-content-evenly">
+                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </main>
+
+
+    <footer class="bd-footer py-4 py-md-5 mt-auto" style="background-color: #2CC7FF;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
+                    <img src="Assets/Cinevana.png" height="60">
+                </div>
+                <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
+                    <h5 class="text-uppercase">Peliculas</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" class="text-white">Cartelera</a></li>
+                        <li><a href="#" class="text-white">Preventas</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
+                    <h5 class="text-uppercase">Contacto</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><span class="text-white"> Telefono: 2222-2222</span></li>
+                        <li><span class="text-white">Correo: contacto.ayuda@cinevana.cl</span></li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
+                    <h5 class="text-uppercase">Redes Sociales</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#" class="text-white">Facebook</a></li>
+                        <li><a href="#" class="text-white">Instagram</a></li>
+                        <li><a href="#" class="text-white">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Simulated suggestion data
+            const suggestions = ['Five Nights At Freddys', 'Napoleon', 'Los Juegos del Hambre', 'Your Name'];
+            const img = ['Assets/Cards/FNAFCard.jpg', 'Assets/Cards/NapoleonCard.jpg', 'Assets/Cards/HungerGamesCard.jpg', 'Assets/Cards/YourNameCard.jpg']
+            // Function to show suggestions
+            function showSuggestions(query) {
+                const suggestionPopup = $('#suggestionPopup');
+                suggestionPopup.empty();
+
+                suggestions.forEach(function (suggestion, index) {
+                    if (suggestion.toLowerCase().includes(query.toLowerCase())) {
+                        const suggestionItem = $('<div class="suggestion-item"><a href="#" style="text-decoration: none; color: #333"><img src="' + img[index] + '" height="60" class="px-2">' + suggestion + '</a></div>');
+                        suggestionItem.click(function () {
+                            $('#inputSearch').val(suggestion);
+                            suggestionPopup.empty(); // Clear suggestions after selecting one
+                        });
+                        suggestionPopup.append(suggestionItem);
+                    }
+                });
+
+                if (suggestionPopup.children().length > 0) {
+                    suggestionPopup.show();
+                } else {
+                    suggestionPopup.hide();
+                }
+            }
+
+            // Event listener for input changes
+            $('#inputSearch').on('input', function () {
+                const query = $(this).val();
+                showSuggestions(query);
+            });
+
+            // Event listener to hide suggestions when clicking outside the input and popup
+            $(document).on('click', function (event) {
+                const target = $(event.target);
+                if (!target.closest('.form-group').length) {
+                    $('#suggestionPopup').hide();
+                }
+            });
+        });
+    </script>
+    <script>
+        
+        const movieCodes=["fnaf", "nap", "hun", "yna"]
+        const movieList=["Five Nights At Freddys", "Napoleon", "Los Juegos del Hambre", "Your Name"]
+        const movieImages=["Assets/Cards/FNAFCard.jpg", "Assets/Cards/NapoleonCard.jpg", "Assets/Cards/HungerGamesCard.jpg", "Assets/Cards/YourNameCard.jpg"]
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the URL parameters
+            var urlParams = new URLSearchParams(window.location.search);
+
+            // Get the value of the 'variableName' parameter
+            var movie = urlParams.get('movie');
+
+            // Use the variable as needed
+            if (movie != null) {
+                var movieIndex = movieCodes.indexOf(movie);
+                document.getElementById("movieTitle").textContent = movieList[movieIndex];
+                document.getElementById("movieImage").src = movieImages[movieIndex];
+            }
+        });
+    </script>
+</body>
+
+
+
+
+
+
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+
+</html>
