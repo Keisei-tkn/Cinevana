@@ -159,18 +159,13 @@
                             <img id="movieImage" src="" height="400">
                         </div>
                         <div class="col-6">
-                            <h4 class="text-right">Terror | 1hrs 49 min | +14</h3>
+                            <h5 id="movieClass" class="text-right">Terror | 1hrs 49 min | +14</h3>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <h3 class="text-left">Sinopsis</h3>
-                            <p class="text-justify">¿Podrás sobrevivir cinco noches? El terrorífico fenómeno del
-                                videojuego de terror
-                                se transforma en un escalofriante espectáculo cinematográfico. La película trata de un
-                                problemático guardia de seguridad que empieza a trabajar en Freddy Fazbear's Pizza.
-                                Mientras pasa su primera noche en el trabajo, se da cuenta de que el turno de noche en
-                                Freddy's no será tan fácil de superar.</p>
+                            <p id="movieSinopsis" class="text-justify">Placeholder</p>
                         </div>
                     </div>
                 </div>
@@ -332,10 +327,19 @@
         });
     </script>
     <script>
-        
-        const movieCodes=["fnaf", "nap", "hun", "yna"]
-        const movieList=["Five Nights At Freddys", "Napoleon", "Los Juegos del Hambre", "Your Name"]
-        const movieImages=["Assets/Cards/FNAFCard.jpg", "Assets/Cards/NapoleonCard.jpg", "Assets/Cards/HungerGamesCard.jpg", "Assets/Cards/YourNameCard.jpg"]
+
+        const movieCodes = ["fnaf", "nap", "hun", "yna", "dig", "aki", "eea", "sil"]
+        const movieList = ["Five Nights At Freddys", "Napoleon", "Los Juegos del Hambre", "Your Name", "Digimon Adventure 2", "Akira", "Everything Everywhere All At Once", "Hollow Knight Silksong"]
+        const movieImages = ["Assets/Cards/FNAFCard.jpg", "Assets/Cards/NapoleonCard.jpg", "Assets/Cards/HungerGamesCard.jpg", "Assets/Cards/YourNameCard.jpg", "Assets/Cards/DigimonCard.jpg", "Assets/Cards/AkiraCard.jpg", "Assets/Cards/EEAAOCard.jpg", "Assets/Cards/SilksongCard.jpg"]
+        const moviesClass =["Terror | 1hrs 49 min | +14", "Accion | 2hrs 35 min | +18", "Accion | 2hrs 23 min | +14", "Drama | 1hrs 46 min | +7", "Aventura | 1hrs 30 min | +7", "Accion | 2hrs 4 min | +14", "Drama | 1hrs 31 min | +14", "Accion | 1hrs 30 min | +18"]
+        const moviesSinopsis = ["¿Podrás sobrevivir cinco noches? El terrorífico fenómeno del videojuego de terror se transforma en un escalofriante espectáculo cinematográfico.La película trata de un problemático guardia de seguridad que empieza a trabajar en Freddy Fazbear's Pizza. Mientras pasa su primera noche en el trabajo, se da cuenta de que el turno de noche en Freddy's no será tan fácil de superar.",
+            "Napoleón es una epopeya de acción llena de espectáculo que detalla el accidentado ascenso y caída del emblemático emperador francés Napoleón Bonaparte, interpretado por el ganador al Oscar, Joaquin Phoenix. Con un impresionante escenario cinematográfico a gran escala orquestado por el legendario director Ridley Scott, la película capta la implacable travesía de Bonaparte hacia el poder a través del prisma de su adictiva y volátil relación con su único y verdadero amor, Josefina, mostrando sus visionarias tácticas militares y políticas plasmadas en algunas de las secuencias de batalla más dinámicas y realistas jamás filmadas.",
+            "Muchos años antes de convertirse en presidente de Panem, el joven Coriolanus Snow es elegido mentor del Distrito 12 en los nuevos Juegos del Hambre. Aquí utiliza su encanto, astucia e inventiva para ayudar a su candidata a ganar.",
+            "La historia se centra en Taki Tachibana y Mitsuha Miyamizu, dos jóvenes que viven en dos lugares muy distantes, uno en Tokio y el otro en el pueblo ficticio de Itomori. Un día, Mitsuha sueña que es un chico de Tokio y Taki sueña que es una chica que vive en el campo. A medida que pasan los días, ambos se dan cuenta de que en realidad esos sueños son parte de una realidad compartida.",
+            "Digimon Adventure 02 transcurre tres años después de los acontecimientos de Digimon Adventure. La historia comienza cuando un niño llamado Takeru Takaishi encuentra un DigiHuevo que da a luz a un Digimon bebé llamado Patamon. Takeru se hace amigo de Patamon y se une a los otros niños elegidos cuando sus antiguos enemigos, los Digimon Emperadores, comienzan a causar estragos en el Mundo Digital.",
+            "En el año 2019 se cumplen treinta y un años del estallido de la Tercera Guerra Mundial. En Neo-Tokio, todas las autoridades están librando una lucha interminable contra la clandestinidad que prácticamente gobierna la ciudad destrozada. Un niño ultrasecreto con increíbles poderes mentales se libera de la custodia y accidentalmente involucra a una pandilla de motociclistas en el proyecto. El incidente desencadena poderes psíquicos dentro de uno de los miembros, Tetsuo, y el ejército se lo lleva y experimenta con él. Su mente ha sido deformada y ahora está en el camino de la guerra, exigiendo venganza de la sociedad que una vez lo llamó débil.",
+            "Una mujer de mediana edad se encuentra atrapada en un mundo de dimensiones paralelas donde se ve obligada a enfrentarse a la verdad sobre su marido y su familia.",
+            "Hollow Knight: Silksong es la secuela de Hollow Knight, una pelicula de acción y aventura digirida y publicada por Team Cherry. El juego se anunció en la E3 2019 y se espera que se lance en Windows, macOS, Linux y Nintendo Switch."]
 
         document.addEventListener("DOMContentLoaded", function () {
             // Get the URL parameters
@@ -349,6 +353,8 @@
                 var movieIndex = movieCodes.indexOf(movie);
                 document.getElementById("movieTitle").textContent = movieList[movieIndex];
                 document.getElementById("movieImage").src = movieImages[movieIndex];
+                document.getElementById("movieClass").textContent = moviesClass[movieIndex];
+                document.getElementById("movieSinopsis").textContent = moviesSinopsis[movieIndex];
             }
         });
     </script>
