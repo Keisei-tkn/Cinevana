@@ -72,19 +72,21 @@
       min-width: 40px;
       height: 40px;
       margin: 5px;
+      text-align: center;
     }
 
-    .seatSelected{
-      background-color:chartreuse;
+    .seatSelected {
+      background-color: chartreuse;
       border: 1px solid #000000;
       border-radius: 5px;
       width: 40px;
       min-width: 40px;
       height: 40px;
       margin: 5px;
+      text-align: center;
     }
 
-    .seatOcuppied{
+    .seatOcuppied {
       background-color: #FF0000;
       border: 1px solid #000000;
       border-radius: 5px;
@@ -92,9 +94,10 @@
       min-width: 40px;
       height: 40px;
       margin: 5px;
+      text-align: center;
     }
 
-    .seatPlaceholder{
+    .seatPlaceholder {
       width: 40px;
       min-width: 40px;
       height: 40px;
@@ -182,10 +185,10 @@
     </div>
     <div class="row ">
       <div class="col">
-        <h2 class="text-left mt-1 px-4 pt-1 pb-2 rounded" style="background-color: #8de1ff;">Five Nights At Freddys</h2>
-        <div class="d-flex px-4">
+        <h2 class="text-center mt-1 px-4 pt-1 pb-2 rounded" style="background-color: #8de1ff;">Five Nights At Freddys
+        </h2>
+        <div class="d-flex px-4 justify-content-center">
           <img src="Assets/Cards/FNAFCard.jpg" height="400">
-          <h5 class="text-center mt-2" style="margin-left: 5%;">Placeholder</h5>
         </div>
       </div>
       <div class="col">
@@ -194,13 +197,13 @@
           <h3 class="text-left px-4 py-4 mt-2">Placeholder Date</h3>
           <div class="d-flex">
             <h5 class="text-left px-4 py-2">Placeholder Again</h5>
-            <button type="button" class="btn btn-primary" style="margin-left: 5%;">Comprar</button>
+            <button type="button" class="btn btn-primary" style="margin-left: 5%;">Placeholder</button>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 py-4">
         <div class=" container pb-4 my-4 rounded" style="background-color: #D9D9D9;">
           <div class="mx-4 mt-4 rounded" style="background-color:#8de1ff;">
             <h3 class="text-left px-4 py-4 mt-2">Cantidad: </h3>
@@ -208,107 +211,179 @@
           <div class="mx-4 mt-4 rounded" style="background-color:#8de1ff;">
             <h3 class="text-left px-4 py-4 mt-2">Valor Total: </h3>
           </div>
-          <div class="btn-primary mx-4 mt-4 rounded" type="button" style="background-color: #F380AB;">
+          <div class="btn-primary mx-4 mt-4 rounded" data-bs-toggle="modal" data-bs-target="#buyModal" type="button"
+            style="background-color: #F380AB; border: #000000 2px solid;">
             <h3 class="text-center px-4 py-4 mt-2">Comprar</h3>
           </div>
         </div>
       </div>
-      <div class="col-md-12 col-lg-8 py-4 overflow-auto">
+      <div class="col-md-12 col-lg-8 py-4 overflow-auto" style="padding-left: 10%;">
         <div class="seatChoices ">
-          <h3 class="text-center">Escoge tus asientos</h3>
-          <div class="d-flex justify-content-center">
-            <div class="d-flex align-items-center mx-auto">
+          <h3 class="mx-auto">Escoge tus asientos</h3>
+          <div class="d-flex">
+            <div class="d-flex align-items-center mx-4">
               <h5 class="">Disponible</h5>
               <div class="seatUnselected" type="button"></div>
             </div>
-            <div class="d-flex align-items-center mx-auto">
+            <div class="d-flex align-items-center mx-5">
               <h5 class="">Seleccionado</h5>
               <div class="seatSelected" type="button"></div>
             </div>
-            <div class="d-flex align-items-center mx-auto">
+            <div class="d-flex align-items-center mx-5">
               <h5 class="">Ocupado</h5>
               <div class="seatOcuppied" type="button"></div>
             </div>
           </div>
-          <img src="Assets/SeatScreen.png" class="mx-auto d-block pb-4" width="750">
-          <div class="d-flex justify-content-center">
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatPlaceholder" ></div>
-            <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
+          <img src="Assets/SeatScreen.png" class="d-block pb-4" width="650">
+          <div class="d-flex">
+            <div class="seatUnselected" type="button">A1</div>
+            <div class="seatUnselected" type="button">A2</div>
             <div class="seatPlaceholder"></div>
             <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button">A3</div>
+            <div class="seatUnselected" type="button">A4</div>
+            <div class="seatUnselected" type="button">A5</div>
+            <div class="seatUnselected" type="button">A6</div>
+            <div class="seatUnselected" type="button">A7</div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatUnselected" type="button">A8</div>
+            <div class="seatUnselected" type="button">A9</div>
           </div>
-          <div class="d-flex justify-content-center">
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatPlaceholder" ></div>
-            <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
+          <div class="d-flex ">
+            <div class="seatUnselected" type="button">B1</div>
+            <div class="seatUnselected" type="button">B2</div>
             <div class="seatPlaceholder"></div>
             <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button">B3</div>
+            <div class="seatOcuppied" type="button">B4</div>
+            <div class="seatOcuppied" type="button">B5</div>
+            <div class="seatUnselected" type="button">B6</div>
+            <div class="seatUnselected" type="button">B7</div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatUnselected" type="button">B8</div>
+            <div class="seatUnselected" type="button">B9</div>
           </div>
-          <div class="d-flex justify-content-center">
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatPlaceholder" ></div>
-            <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
+          <div class="d-flex ">
+            <div class="seatUnselected" type="button">C1</div>
+            <div class="seatUnselected" type="button">C2</div>
             <div class="seatPlaceholder"></div>
             <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button">C3</div>
+            <div class="seatUnselected" type="button">C4</div>
+            <div class="seatUnselected" type="button">C5</div>
+            <div class="seatUnselected" type="button">C6</div>
+            <div class="seatUnselected" type="button">C7</div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatUnselected" type="button">C8</div>
+            <div class="seatUnselected" type="button">C9</div>
           </div>
-          <div class="d-flex justify-content-center">
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatPlaceholder" ></div>
-            <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
+          <div class="d-flex ">
+            <div class="seatUnselected" type="button">D1</div>
+            <div class="seatUnselected" type="button">D2</div>
             <div class="seatPlaceholder"></div>
             <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button">D3</div>
+            <div class="seatUnselected" type="button">D4</div>
+            <div class="seatUnselected" type="button">D5</div>
+            <div class="seatUnselected" type="button">D6</div>
+            <div class="seatUnselected" type="button">D7</div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatUnselected" type="button">D8</div>
+            <div class="seatUnselected" type="button">D9</div>
           </div>
-          <div class="d-flex justify-content-center">
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
-            <div class="seatUnselected" type="button"></div>
+          <div class="d-flex ">
+            <div class="seatUnselected" type="button">E1</div>
+            <div class="seatUnselected" type="button">E2</div>
+            <div class="seatUnselected" type="button">E3</div>
+            <div class="seatUnselected" type="button">E4</div>
+            <div class="seatUnselected" type="button">E5</div>
+            <div class="seatUnselected" type="button">E6</div>
+            <div class="seatUnselected" type="button">E7</div>
+            <div class="seatUnselected" type="button">E8</div>
+            <div class="seatUnselected" type="button">E9</div>
+            <div class="seatUnselected" type="button">E10</div>
+            <div class="seatUnselected" type="button">E11</div>
+            <div class="seatOcuppied" type="button">E12</div>
+            <div class="seatOcuppied" type="button">E13</div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Comprar</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <h4>Detalles de la compra</h4>
+              <div class="d-flex align-items-baseline">
+                <h5 class="text-left" style="padding-left: 1.5rem;">Pelicula: </h5>
+                <h6 class="text-left" style="padding-left: 1.5rem;">Placeholder</h6>
+              </div>
+              <div class="d-flex align-items-baseline">
+                <h5 class="text-left" style="padding-left: 1.5rem;">Fecha: </h5>
+                <h6 class="text-left" style="padding-left: 1.5rem;">Placeholder</h6>
+              </div>
+              <div class="d-flex align-items-baseline">
+                <h5 class="text-left" style="padding-left: 1.5rem;">Asientos: </h5>
+                <h6 class="text-left" style="padding-left: 1.5rem;">Placeholder</h6>
+              </div>
+            </div>
+            <div>
+              <h4>Metodo de pago</h4>
+              <div class="d-flex">
+                <button class="text-left rounded mx-auto" style="height: 60px; width: 70;">
+                  <img src="Assets/LogoPago/1.Webpay_FB_800px.png" height="40">
+                </button>
+                <button class="text-left rounded mx-auto" style="height: 60px; width: 70;">
+                  <img src="Assets/LogoPago/MercadoPago.png" height="40">
+                </button>
+              </div>
+            </div>
+            <div>
+              <h4>Datos personales</h4>
+              <form>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="recipient-name" class="col-form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                  </div>
+                  <div class=" col-md-6 mb-3">
+                    <label for="recipient-name" class="col-form-label">Apellido:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="recipient-name" class="col-form-label">Correo:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="recipient-name" class="col-form-label">Telefono:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" style="background-color: #F380AB;">Continuar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <footer class="bd-footer py-4 py-md-5 mt-auto" style="background-color: #2CC7FF;">
