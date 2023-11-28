@@ -59,9 +59,47 @@
       background-color: #f0f0f0;
     }
 
-    .container{
-        overflow-x: auto;
-        white-space: nowrap;
+    .container {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .seatUnselected {
+      background-color: #D9D9D9;
+      border: 1px solid #000000;
+      border-radius: 5px;
+      width: 40px;
+      min-width: 40px;
+      height: 40px;
+      margin: 5px;
+    }
+
+    .seatSelected{
+      background-color:chartreuse;
+      border: 1px solid #000000;
+      border-radius: 5px;
+      width: 40px;
+      min-width: 40px;
+      height: 40px;
+      margin: 5px;
+    }
+
+    .seatOcuppied{
+      background-color: #FF0000;
+      border: 1px solid #000000;
+      border-radius: 5px;
+      width: 40px;
+      min-width: 40px;
+      height: 40px;
+      margin: 5px;
+    }
+
+    .seatPlaceholder{
+      width: 40px;
+      min-width: 40px;
+      height: 40px;
+      margin: 5px;
+      opacity: 0;
     }
   </style>
 
@@ -137,6 +175,140 @@
   </header>
 
   <main class="container" style="background-color: #FBFBFB;">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-left pt-3 px-2">Selecciona tus asientos</h1>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col">
+        <h2 class="text-left mt-1 px-4 pt-1 pb-2 rounded" style="background-color: #8de1ff;">Five Nights At Freddys</h2>
+        <div class="d-flex px-4">
+          <img src="Assets/Cards/FNAFCard.jpg" height="400">
+          <h5 class="text-center mt-2" style="margin-left: 5%;">Placeholder</h5>
+        </div>
+      </div>
+      <div class="col">
+        <h2 class="text-center mt-1 px-4 pt-1 pb-2 rounded" style="background-color: #8de1ff;">Funcion Seleccionada</h2>
+        <div class="pb-4 rounded" style="background-color: #D9D9D9;">
+          <h3 class="text-left px-4 py-4 mt-2">Placeholder Date</h3>
+          <div class="d-flex">
+            <h5 class="text-left px-4 py-2">Placeholder Again</h5>
+            <button type="button" class="btn btn-primary" style="margin-left: 5%;">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        <div class=" container pb-4 my-4 rounded" style="background-color: #D9D9D9;">
+          <div class="mx-4 mt-4 rounded" style="background-color:#8de1ff;">
+            <h3 class="text-left px-4 py-4 mt-2">Cantidad: </h3>
+          </div>
+          <div class="mx-4 mt-4 rounded" style="background-color:#8de1ff;">
+            <h3 class="text-left px-4 py-4 mt-2">Valor Total: </h3>
+          </div>
+          <div class="btn-primary mx-4 mt-4 rounded" type="button" style="background-color: #F380AB;">
+            <h3 class="text-center px-4 py-4 mt-2">Comprar</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-8 py-4 overflow-auto">
+        <div class="seatChoices ">
+          <h3 class="text-center">Escoge tus asientos</h3>
+          <div class="d-flex justify-content-center">
+            <div class="d-flex align-items-center mx-auto">
+              <h5 class="">Disponible</h5>
+              <div class="seatUnselected" type="button"></div>
+            </div>
+            <div class="d-flex align-items-center mx-auto">
+              <h5 class="">Seleccionado</h5>
+              <div class="seatSelected" type="button"></div>
+            </div>
+            <div class="d-flex align-items-center mx-auto">
+              <h5 class="">Ocupado</h5>
+              <div class="seatOcuppied" type="button"></div>
+            </div>
+          </div>
+          <img src="Assets/SeatScreen.png" class="mx-auto d-block pb-4" width="750">
+          <div class="d-flex justify-content-center">
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatPlaceholder" ></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatPlaceholder" ></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatPlaceholder" ></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatPlaceholder" ></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatPlaceholder"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+            <div class="seatUnselected" type="button"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="bd-footer py-4 py-md-5 mt-auto" style="background-color: #2CC7FF;">
