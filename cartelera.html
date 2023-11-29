@@ -107,7 +107,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <form class="d-flex align-items-center" role="search">
+                            <form onsubmit="return false" class="d-flex align-items-center" role="search">
 
                                 <input id="inputSearch" class="form-control" type="search"
                                     placeholder="Buscar Pelicula..." aria-label="Search" style="margin-right: 10px; ">
@@ -199,8 +199,8 @@
                 <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
                     <h5 class="text-uppercase">Peliculas</h5>
                     <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-white">Cartelera</a></li>
-                        <li><a href="#" class="text-white">Preventas</a></li>
+                        <li><a href="cartelera.html" class="text-white">Cartelera</a></li>
+                        <li><a href="preventas.html" class="text-white">Preventas</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
@@ -233,7 +233,8 @@
         $(document).ready(function () {
             // Simulated suggestion data
             const suggestions = ['Akira', 'Digimon Adventure 2', 'Everything Everywhere', 'Five Night at Freddys','Hollow Knight Silksong' ,'Los Juegos del Hambre', 'Napoleon', 'Your Name'];
-      const img = ['Assets/Cards/AkiraCard.jpg', 'Assets/Cards/DigimonCard.jpg', 'Assets/Cards/EEAAOCard.jpg', 'Assets/Cards/FNAFCard.jpg', 'Assets/Cards/SilksongCard.png', 'Assets/Cards/HungerGamesCard.jpg', 'Assets/Cards/NapoleonCard.jpg', 'Assets/Cards/YourNameCard.jpg']
+            const img = ['Assets/Cards/AkiraCard.jpg', 'Assets/Cards/DigimonCard.jpg', 'Assets/Cards/EEAAOCard.jpg', 'Assets/Cards/FNAFCard.jpg', 'Assets/Cards/SilksongCard.png', 'Assets/Cards/HungerGamesCard.jpg', 'Assets/Cards/NapoleonCard.jpg', 'Assets/Cards/YourNameCard.jpg']
+            const link = ['horarios.html?movie=aki', 'horarios.html?movie=dig', 'horarios.html?movie=eea', 'horarios.html?movie=fnaf', 'horarios.html?movie=sil', 'horarios.html?movie=hun', 'horarios.html?movie=nap', 'horarios.html?movie=yna']
             // Function to show suggestions
             function showSuggestions(query) {
                 const suggestionPopup = $('#suggestionPopup');
@@ -241,9 +242,10 @@
 
                 suggestions.forEach(function (suggestion, index) {
                     if (suggestion.toLowerCase().includes(query.toLowerCase())) {
-                        const suggestionItem = $('<div class="suggestion-item"><a href="#" style="text-decoration: none; color: #333"><img src="' + img[index] + '" height="60" class="px-2">' + suggestion + '</a></div>');
+                        const suggestionItem = $('<div class="suggestion-item"><a href="'+ link[index] +'" style="text-decoration: none; color: #333"><img src="' + img[index] + '" height="60" class="px-2">' + suggestion + '</a></div>');
                         suggestionItem.click(function () {
                             $('#inputSearch').val(suggestion);
+                            window.location.href = link[index];
                             suggestionPopup.empty(); // Clear suggestions after selecting one
                         });
                         suggestionPopup.append(suggestionItem);
