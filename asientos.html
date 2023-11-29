@@ -104,6 +104,12 @@
       margin: 5px;
       opacity: 0;
     }
+
+    .modal-button.selected {
+      background-color: #b0b0b8;
+    }
+
+
   </style>
 
 </head>
@@ -185,19 +191,21 @@
     </div>
     <div class="row ">
       <div class="col">
-        <h2 class="text-center mt-1 px-4 pt-1 pb-2 rounded" style="background-color: #8de1ff;">Five Nights At Freddys
+        <h2 id="movieTitle" class="text-center mt-1 px-4 pt-1 pb-2 rounded" style="background-color: #8de1ff;">
+          Placeholder
         </h2>
         <div class="d-flex px-4 justify-content-center">
-          <img src="Assets/Cards/FNAFCard.jpg" height="400">
+          <img id="movieImage" src="Assets/Cards/FNAFCard.jpg" height="400">
         </div>
       </div>
       <div class="col">
         <h2 class="text-center mt-1 px-4 pt-1 pb-2 rounded" style="background-color: #8de1ff;">Funcion Seleccionada</h2>
         <div class="pb-4 rounded" style="background-color: #D9D9D9;">
-          <h3 class="text-left px-4 py-4 mt-2">Placeholder Date</h3>
+          <h3 id="movieDate" class="text-left px-4 py-4 mt-2">Placeholder Date</h3>
           <div class="d-flex">
-            <h5 class="text-left px-4 py-2">Placeholder Again</h5>
-            <button type="button" class="btn btn-primary" style="margin-left: 5%;">Placeholder</button>
+            <h5 id="movieLanguage" class="text-left px-4 py-2">Placeholder Again</h5>
+            <div id="movieTime" class="btn btn-primary px-4 py-2 mt-auto"
+              style="margin-left: 5%; background-color: #F380AB; pointer-events: none; border: none;">Placeholder</div>
           </div>
         </div>
       </div>
@@ -205,14 +213,15 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 py-4">
         <div class=" container pb-4 my-4 rounded" style="background-color: #D9D9D9;">
-          <div class="mx-4 mt-4 rounded" style="background-color:#8de1ff;">
-            <h3 class="text-left px-4 py-4 mt-2">Cantidad: </h3>
+          <div class="d-flex mx-4 mt-4 rounded" style="background-color:#8de1ff;">
+            <h3 id="cantSeats" class="text-left px-4 py-4 mt-2">Cantidad: 0</h3>
           </div>
           <div class="mx-4 mt-4 rounded" style="background-color:#8de1ff;">
-            <h3 class="text-left px-4 py-4 mt-2">Valor Total: </h3>
+            <h3 id="totalValue" class="text-left px-4 py-4 mt-2">Valor Total: $0 </h3>
           </div>
-          <div class="btn-primary mx-4 mt-4 rounded" data-bs-toggle="modal" data-bs-target="#buyModal" type="button"
-            style="background-color: #F380AB; border: #000000 2px solid;">
+          <div id="buyButton" class="btn-primary mx-4 mt-4 rounded" onclick="showModal()" type="button"
+            style="background-color: #F380AB; border: #000000 2px solid;color:#FBFBFB;"
+            onmouseover="this.style.backgroundColor='#D380AB'" onmouseout="this.style.backgroundColor='#F380AB'">
             <h3 class="text-center px-4 py-4 mt-2">Comprar</h3>
           </div>
         </div>
@@ -236,77 +245,77 @@
           </div>
           <img src="Assets/SeatScreen.png" class="d-block pb-4" width="650">
           <div class="d-flex">
-            <div class="seatUnselected" type="button">A1</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">A1</div>
             <div class="seatUnselected" type="button">A2</div>
             <div class="seatPlaceholder"></div>
             <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button">A3</div>
-            <div class="seatUnselected" type="button">A4</div>
-            <div class="seatUnselected" type="button">A5</div>
-            <div class="seatUnselected" type="button">A6</div>
-            <div class="seatUnselected" type="button">A7</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">A3</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">A4</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">A5</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">A6</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">A7</div>
             <div class="seatPlaceholder"></div>
             <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button">A8</div>
-            <div class="seatUnselected" type="button">A9</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">A8</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">A9</div>
           </div>
           <div class="d-flex ">
-            <div class="seatUnselected" type="button">B1</div>
-            <div class="seatUnselected" type="button">B2</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">B1</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">B2</div>
             <div class="seatPlaceholder"></div>
             <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button">B3</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">B3</div>
             <div class="seatOcuppied" type="button">B4</div>
             <div class="seatOcuppied" type="button">B5</div>
-            <div class="seatUnselected" type="button">B6</div>
-            <div class="seatUnselected" type="button">B7</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">B6</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">B7</div>
             <div class="seatPlaceholder"></div>
             <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button">B8</div>
-            <div class="seatUnselected" type="button">B9</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">B8</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">B9</div>
           </div>
           <div class="d-flex ">
-            <div class="seatUnselected" type="button">C1</div>
-            <div class="seatUnselected" type="button">C2</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">C1</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">C2</div>
             <div class="seatPlaceholder"></div>
             <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button">C3</div>
-            <div class="seatUnselected" type="button">C4</div>
-            <div class="seatUnselected" type="button">C5</div>
-            <div class="seatUnselected" type="button">C6</div>
-            <div class="seatUnselected" type="button">C7</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">C3</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">C4</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">C5</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">C6</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">C7</div>
             <div class="seatPlaceholder"></div>
             <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button">C8</div>
-            <div class="seatUnselected" type="button">C9</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">C8</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">C9</div>
           </div>
           <div class="d-flex ">
-            <div class="seatUnselected" type="button">D1</div>
-            <div class="seatUnselected" type="button">D2</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">D1</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">D2</div>
             <div class="seatPlaceholder"></div>
             <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button">D3</div>
-            <div class="seatUnselected" type="button">D4</div>
-            <div class="seatUnselected" type="button">D5</div>
-            <div class="seatUnselected" type="button">D6</div>
-            <div class="seatUnselected" type="button">D7</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">D3</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">D4</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">D5</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">D6</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">D7</div>
             <div class="seatPlaceholder"></div>
             <div class="seatPlaceholder"></div>
-            <div class="seatUnselected" type="button">D8</div>
-            <div class="seatUnselected" type="button">D9</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">D8</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">D9</div>
           </div>
           <div class="d-flex ">
-            <div class="seatUnselected" type="button">E1</div>
-            <div class="seatUnselected" type="button">E2</div>
-            <div class="seatUnselected" type="button">E3</div>
-            <div class="seatUnselected" type="button">E4</div>
-            <div class="seatUnselected" type="button">E5</div>
-            <div class="seatUnselected" type="button">E6</div>
-            <div class="seatUnselected" type="button">E7</div>
-            <div class="seatUnselected" type="button">E8</div>
-            <div class="seatUnselected" type="button">E9</div>
-            <div class="seatUnselected" type="button">E10</div>
-            <div class="seatUnselected" type="button">E11</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">E1</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">E2</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">E3</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">E4</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">E5</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">E6</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">E7</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">E8</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">E9</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">E10</div>
+            <div class="seatUnselected" type="button" onclick="changeClass(this)">E11</div>
             <div class="seatOcuppied" type="button">E12</div>
             <div class="seatOcuppied" type="button">E13</div>
           </div>
@@ -328,24 +337,24 @@
               <h4>Detalles de la compra</h4>
               <div class="d-flex align-items-baseline">
                 <h5 class="text-left" style="padding-left: 1.5rem;">Pelicula: </h5>
-                <h6 class="text-left" style="padding-left: 1.5rem;">Placeholder</h6>
+                <h6 id="movieTitleModal" class="text-left" style="padding-left: 1.5rem;">Placeholder</h6>
               </div>
               <div class="d-flex align-items-baseline">
                 <h5 class="text-left" style="padding-left: 1.5rem;">Fecha: </h5>
-                <h6 class="text-left" style="padding-left: 1.5rem;">Placeholder</h6>
+                <h6 id="movieDateModal" class="text-left" style="padding-left: 1.5rem;">Placeholder</h6>
               </div>
               <div class="d-flex align-items-baseline">
                 <h5 class="text-left" style="padding-left: 1.5rem;">Asientos: </h5>
-                <h6 class="text-left" style="padding-left: 1.5rem;">Placeholder</h6>
+                <h6 id="movieSeatsModal" class="text-left" style="padding-left: 1.5rem;">Placeholder</h6>
               </div>
             </div>
             <div>
               <h4>Metodo de pago</h4>
               <div class="d-flex">
-                <button class="text-left rounded mx-auto" style="height: 60px; width: 70;">
+                <button class="modal-button text-left rounded mx-auto" onclick="selectButton(this)" style="height: 60px; width: 70;">
                   <img src="Assets/LogoPago/1.Webpay_FB_800px.png" height="40">
                 </button>
-                <button class="text-left rounded mx-auto" style="height: 60px; width: 70;">
+                <button class="modal-button text-left rounded mx-auto" onclick="selectButton(this)" style="height: 60px; width: 70;">
                   <img src="Assets/LogoPago/MercadoPago.png" height="40">
                 </button>
               </div>
@@ -364,21 +373,21 @@
                   </div>
                 </div>
                 <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="recipient-name" class="col-form-label">Correo:</label>
-                  <input type="text" class="form-control" id="recipient-name">
+                  <div class="col-md-6 mb-3">
+                    <label for="recipient-name" class="col-form-label">Correo:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="recipient-name" class="col-form-label">Telefono:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                  </div>
                 </div>
-                <div class="col-md-6 mb-3">
-                  <label for="recipient-name" class="col-form-label">Telefono:</label>
-                  <input type="text" class="form-control" id="recipient-name">
-                </div>
-              </div>
               </form>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" style="background-color: #F380AB;">Continuar</button>
+            <button type="button" class="btn btn-primary" style="background-color: #F380AB; border:none">Continuar</button>
           </div>
         </div>
       </div>
@@ -412,7 +421,7 @@
           <ul class="list-unstyled mb-0">
             <li><a href="#" class="text-white">Facebook</a></li>
             <li><a href="#" class="text-white">Instagram</a></li>
-            <li><a href="#" class="text-white">Twitter</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="text-white">Twitter</a></li>
           </ul>
         </div>
       </div>
@@ -430,8 +439,8 @@
   <script>
     $(document).ready(function () {
       // Simulated suggestion data
-      const suggestions = ['Five Nights At Freddys', 'Napoleon', 'Los Juegos del Hambre', 'Your Name'];
-      const img = ['Assets/Cards/FNAFCard.jpg', 'Assets/Cards/NapoleonCard.jpg', 'Assets/Cards/HungerGamesCard.jpg', 'Assets/Cards/YourNameCard.jpg']
+      const suggestions = ['Akira', 'Digimon Adventure 2', 'Everything Everywhere', 'Five Night at Freddys', 'Hollow Knight Silksong', 'Los Juegos del Hambre', 'Napoleon', 'Your Name'];
+      const img = ['Assets/Cards/AkiraCard.jpg', 'Assets/Cards/DigimonCard.jpg', 'Assets/Cards/EEAAOCard.jpg', 'Assets/Cards/FNAFCard.jpg', 'Assets/Cards/SilksongCard.png', 'Assets/Cards/HungerGamesCard.jpg', 'Assets/Cards/NapoleonCard.jpg', 'Assets/Cards/YourNameCard.jpg']
       // Function to show suggestions
       function showSuggestions(query) {
         const suggestionPopup = $('#suggestionPopup');
@@ -469,6 +478,145 @@
         }
       });
     });
+  </script>
+  <script>
+
+    const movieCodes = ["fnaf", "nap", "hun", "yna", "dig", "aki", "eea", "sil"]
+    const movieList = ["Five Nights At Freddys", "Napoleon", "Los Juegos del Hambre", "Your Name", "Digimon Adventure 2", "Akira", "Everything Everywhere All At Once", "Hollow Knight Silksong"]
+    const movieImages = ["Assets/Cards/FNAFCard.jpg", "Assets/Cards/NapoleonCard.jpg", "Assets/Cards/HungerGamesCard.jpg", "Assets/Cards/YourNameCard.jpg", "Assets/Cards/DigimonCard.jpg", "Assets/Cards/AkiraCard.jpg", "Assets/Cards/EEAAOCard.jpg", "Assets/Cards/SilksongCard.jpg"]
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get the URL parameters
+      var urlParams = new URLSearchParams(window.location.search);
+
+      // Get the value of the 'variableName' parameter
+      var movie = urlParams.get('movie');
+      var time = urlParams.get('hora');
+      var date = urlParams.get('fecha');
+      var lang = urlParams.get('idioma');
+      var strDate;
+
+      if (lang == "sub") {
+        document.getElementById("movieLanguage").textContent = "SUBTITULADA";
+      } else {
+        document.getElementById("movieLanguage").textContent = "DOBLADA";
+      }
+
+      if (time == "15:00") {
+        document.getElementById("movieTime").textContent = "15:00";
+      } else {
+        document.getElementById("movieTime").textContent = "17:00";
+      }
+
+      switch (date) {
+        case "17n":
+          strDate = "17 de Noviembre";
+          break;
+        case "18n":
+          strDate = "18 de Noviembre";
+          break;
+        case "19n":
+          strDate = "19 de Noviembre";
+          break;
+        case "20n":
+          strDate = "20 de Noviembre";
+          break;
+      }
+
+
+
+
+      // Use the variable as needed
+      if (movie != null) {
+        var movieIndex = movieCodes.indexOf(movie);
+        document.getElementById("movieTitle").textContent = movieList[movieIndex];
+        document.getElementById("movieImage").src = movieImages[movieIndex];
+        document.getElementById("movieDate").textContent = strDate;
+      }
+    });
+
+
+  </script>
+  <script>
+    var count = 0;
+    var seats = [];
+
+    function changeClass(element) {
+      if (element.classList.contains("seatUnselected") && count < 5) {
+        element.classList.remove("seatUnselected");
+        element.classList.add("seatSelected");
+
+        updateSeat();
+      } else if (element.classList.contains("seatSelected")) {
+        element.classList.remove("seatSelected");
+        element.classList.add("seatUnselected");
+
+        updateSeat();
+      }
+
+      var clickedButtons = document.querySelectorAll('.seatSelected');
+      count = clickedButtons.length - 1;
+      document.getElementById("cantSeats").textContent = "Cantidad: " + count;
+      console.log("Number of buttons with the 'clicked' class: " + count);
+
+      var total = count * 4500;
+      document.getElementById("totalValue").textContent = "Valor Total: $" + total;
+
+    }
+
+    function updateSeat() {
+      var selectedButtons = document.querySelectorAll('.seatSelected');
+      seats = [];
+      selectedButtons.forEach(function (button) {
+        seats.push(button.textContent);
+      });
+      console.log(seats);
+
+      seats.sort();
+    }
+
+    function showModal() {
+
+      if (count > 0) {
+        // Show the Bootstrap modal
+        modalData();
+        $('#buyModal').modal('show');
+      } else {
+        // Inform the user that the condition is not met
+        alert("Necesitas escoger al menos un asiento.");
+      }
+    }
+
+    function modalData() {
+      document.getElementById("movieTitleModal").textContent = document.getElementById("movieTitle").textContent;
+      document.getElementById("movieDateModal").textContent = document.getElementById("movieDate").textContent;
+
+      var strSeats;
+
+      for (var i = 1; i < seats.length; i++) {
+        if (i == 1) {
+          strSeats = seats[i];
+        } else {
+          strSeats = strSeats + " - " + seats[i];
+        }
+      }
+
+      document.getElementById("movieSeatsModal").textContent = strSeats;
+    }
+
+
+  </script>
+  <script>
+    function selectButton(button) {
+      // Desselecciona todos los botones
+      var buttons = document.querySelectorAll('.modal-button');
+      buttons.forEach(function(btn) {
+        btn.classList.remove('selected');
+      });
+
+      // Selecciona el botón clicado
+      button.classList.add('selected');
+    }
   </script>
 </body>
 

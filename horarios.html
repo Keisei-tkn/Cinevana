@@ -172,15 +172,15 @@
                             <div class="row align-items-center flex">
                                 <h5 class="col-6">SUBTITULADA</h5>
                                 <ul class="col-6 justify-content-evenly">
-                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
-                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('15:00','sub','17n')">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('17:00','sub','17n')">17:00</li>
                                 </ul>
                             </div>
                             <div class="row align-items-center flex">
                                 <h5 class="col-6">DOBLADA</h5>
                                 <ul class="col-6 justify-content-evenly">
-                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
-                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('15:00','dub','17n')">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('17:00','dub','17n')">17:00</li>
                                 </ul>
                             </div>
                         </div>
@@ -189,15 +189,15 @@
                             <div class="row align-items-center flex">
                                 <h5 class="col-6">SUBTITULADA</h5>
                                 <ul class="col-6 justify-content-evenly">
-                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
-                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('15:00','sub','18n')">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('17:00','sub','18n')">17:00</li>
                                 </ul>
                             </div>
                             <div class="row align-items-center flex">
                                 <h5 class="col-6">DOBLADA</h5>
                                 <ul class="col-6 justify-content-evenly">
-                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
-                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('15:00','dub','18n')">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('17:00','dub','18n')">17:00</li>
                                 </ul>
                             </div>
                         </div>
@@ -206,15 +206,15 @@
                             <div class="row align-items-center flex">
                                 <h5 class="col-6">SUBTITULADA</h5>
                                 <ul class="col-6 justify-content-evenly">
-                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
-                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('15:00','sub','19n')">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('17:00','sub','19n')">17:00</li>
                                 </ul>
                             </div>
                             <div class="row align-items-center flex">
                                 <h5 class="col-6">DOBLADA</h5>
                                 <ul class="col-6 justify-content-evenly">
-                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
-                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('15:00','dub','19n')">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('17:00','dub','19n')">17:00</li>
                                 </ul>
                             </div>
                         </div>
@@ -223,15 +223,15 @@
                             <div class="row align-items-center flex">
                                 <h5 class="col-6">SUBTITULADA</h5>
                                 <ul class="col-6 justify-content-evenly">
-                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
-                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('15:00','sub','20n')">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('17:00','sub','20n')">17:00</li>
                                 </ul>
                             </div>
                             <div class="row align-items-center flex">
                                 <h5 class="col-6">DOBLADA</h5>
                                 <ul class="col-6 justify-content-evenly">
-                                    <li class="btn btn-primary col-4" type="btn-primary">15:00</li>
-                                    <li class="btn btn-primary col-4" type="btn-primary">17:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('15:00','dub','20n')">15:00</li>
+                                    <li class="btn btn-primary col-4" type="btn-primary" onclick="goToPage('17:00','dub','20n')">17:00</li>
                                 </ul>
                             </div>
                         </div>
@@ -266,7 +266,7 @@
                     <ul class="list-unstyled mb-0">
                         <li><a href="#" class="text-white">Facebook</a></li>
                         <li><a href="#" class="text-white">Instagram</a></li>
-                        <li><a href="#" class="text-white">Twitter</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="text-white">Twitter</a></li>
                     </ul>
                 </div>
             </div>
@@ -282,8 +282,8 @@
     <script>
         $(document).ready(function () {
             // Simulated suggestion data
-            const suggestions = ['Five Nights At Freddys', 'Napoleon', 'Los Juegos del Hambre', 'Your Name'];
-            const img = ['Assets/Cards/FNAFCard.jpg', 'Assets/Cards/NapoleonCard.jpg', 'Assets/Cards/HungerGamesCard.jpg', 'Assets/Cards/YourNameCard.jpg']
+            const suggestions = ['Akira', 'Digimon Adventure 2', 'Everything Everywhere', 'Five Night at Freddys','Hollow Knight Silksong' ,'Los Juegos del Hambre', 'Napoleon', 'Your Name'];
+      const img = ['Assets/Cards/AkiraCard.jpg', 'Assets/Cards/DigimonCard.jpg', 'Assets/Cards/EEAAOCard.jpg', 'Assets/Cards/FNAFCard.jpg', 'Assets/Cards/SilksongCard.png', 'Assets/Cards/HungerGamesCard.jpg', 'Assets/Cards/NapoleonCard.jpg', 'Assets/Cards/YourNameCard.jpg']
             // Function to show suggestions
             function showSuggestions(query) {
                 const suggestionPopup = $('#suggestionPopup');
@@ -326,7 +326,7 @@
 
         const movieCodes = ["fnaf", "nap", "hun", "yna", "dig", "aki", "eea", "sil"]
         const movieList = ["Five Nights At Freddys", "Napoleon", "Los Juegos del Hambre", "Your Name", "Digimon Adventure 2", "Akira", "Everything Everywhere All At Once", "Hollow Knight Silksong"]
-        const movieImages = ["Assets/Cards/FNAFCard.jpg", "Assets/Cards/NapoleonCard.jpg", "Assets/Cards/HungerGamesCard.jpg", "Assets/Cards/YourNameCard.jpg", "Assets/Cards/DigimonCard.jpg", "Assets/Cards/AkiraCard.jpg", "Assets/Cards/EEAAOCard.jpg", "Assets/Cards/SilksongCard.jpg"]
+        const movieImages = ["Assets/Cards/FNAFCard.jpg", "Assets/Cards/NapoleonCard.jpg", "Assets/Cards/HungerGamesCard.jpg", "Assets/Cards/YourNameCard.jpg", "Assets/Cards/DigimonCard.jpg", "Assets/Cards/AkiraCard.jpg", "Assets/Cards/EEAAOCard.jpg", "Assets/Cards/SilksongCard.png"]
         const moviesClass =["Terror | 1hrs 49 min | +14", "Accion | 2hrs 35 min | +18", "Accion | 2hrs 23 min | +14", "Drama | 1hrs 46 min | +7", "Aventura | 1hrs 30 min | +7", "Accion | 2hrs 4 min | +14", "Drama | 1hrs 31 min | +14", "Accion | 1hrs 30 min | +18"]
         const moviesSinopsis = ["¿Podrás sobrevivir cinco noches? El terrorífico fenómeno del videojuego de terror se transforma en un escalofriante espectáculo cinematográfico.La película trata de un problemático guardia de seguridad que empieza a trabajar en Freddy Fazbear's Pizza. Mientras pasa su primera noche en el trabajo, se da cuenta de que el turno de noche en Freddy's no será tan fácil de superar.",
             "Napoleón es una epopeya de acción llena de espectáculo que detalla el accidentado ascenso y caída del emblemático emperador francés Napoleón Bonaparte, interpretado por el ganador al Oscar, Joaquin Phoenix. Con un impresionante escenario cinematográfico a gran escala orquestado por el legendario director Ridley Scott, la película capta la implacable travesía de Bonaparte hacia el poder a través del prisma de su adictiva y volátil relación con su único y verdadero amor, Josefina, mostrando sus visionarias tácticas militares y políticas plasmadas en algunas de las secuencias de batalla más dinámicas y realistas jamás filmadas.",
@@ -353,6 +353,16 @@
                 document.getElementById("movieSinopsis").textContent = moviesSinopsis[movieIndex];
             }
         });
+    </script>
+    <script>
+        function goToPage(hora, idioma, fecha) {
+
+            var urlParams = new URLSearchParams(window.location.search);
+
+            var movie = urlParams.get('movie');
+
+            window.location.href = "asientos.html?movie=" + movie + "&hora=" + hora + "&idioma=" + idioma + "&fecha=" + fecha;
+        }
     </script>
 </body>
 
