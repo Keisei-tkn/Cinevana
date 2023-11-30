@@ -282,7 +282,7 @@
     <script>
         $(document).ready(function () {
             // Simulated suggestion data
-            const suggestions = ['Akira', 'Digimon Adventure 2', 'Everything Everywhere', 'Five Night at Freddys','Hollow Knight Silksong' ,'Los Juegos del Hambre', 'Napoleon', 'Your Name'];
+            const suggestions = ['Akira', 'Digimon Adventure 2', 'Everything Everywhere', 'Five Night at Freddys','Hollow Knight' ,'Los Juegos del Hambre', 'Napoleon', 'Your Name'];
             const img = ['Assets/Cards/AkiraCard.jpg', 'Assets/Cards/DigimonCard.jpg', 'Assets/Cards/EEAAOCard.jpg', 'Assets/Cards/FNAFCard.jpg', 'Assets/Cards/SilksongCard.png', 'Assets/Cards/HungerGamesCard.jpg', 'Assets/Cards/NapoleonCard.jpg', 'Assets/Cards/YourNameCard.jpg']
             const link = ['horarios.html?movie=aki', 'horarios.html?movie=dig', 'horarios.html?movie=eea', 'horarios.html?movie=fnaf', 'horarios.html?movie=sil', 'horarios.html?movie=hun', 'horarios.html?movie=nap', 'horarios.html?movie=yna']
             // Function to show suggestions
@@ -294,7 +294,7 @@
                     if (suggestion.toLowerCase().includes(query.toLowerCase())) {
                         const suggestionItem = $('<div class="suggestion-item"><a class="stretched=link" href="'+ link[index] +'" style="text-decoration: none; color: #333"><img src="' + img[index] + '" height="60" class="px-2">' + suggestion + '</a></div>');
                         suggestionItem.click(function () {
-                            $('#inputSearch').val(suggestion);
+
                             window.location.href = link[index];
                             suggestionPopup.empty(); // Clear suggestions after selecting one
                         });
@@ -327,7 +327,7 @@
     <script>
 
         const movieCodes = ["fnaf", "nap", "hun", "yna", "dig", "aki", "eea", "sil"]
-        const movieList = ["Five Nights At Freddys", "Napoleon", "Los Juegos del Hambre", "Your Name", "Digimon Adventure 2", "Akira", "Everything Everywhere All At Once", "Hollow Knight Silksong"]
+        const movieList = ["Five Nights At Freddys", "Napoleon", "Los Juegos del Hambre", "Your Name", "Digimon Adventure 2", "Akira", "Everything Everywhere All At Once", "Hollow Knight"]
         const movieImages = ["Assets/Cards/FNAFCard.jpg", "Assets/Cards/NapoleonCard.jpg", "Assets/Cards/HungerGamesCard.jpg", "Assets/Cards/YourNameCard.jpg", "Assets/Cards/DigimonCard.jpg", "Assets/Cards/AkiraCard.jpg", "Assets/Cards/EEAAOCard.jpg", "Assets/Cards/SilksongCard.png"]
         const moviesClass =["Terror | 1hrs 49 min | +14", "Accion | 2hrs 35 min | +18", "Accion | 2hrs 23 min | +14", "Drama | 1hrs 46 min | +7", "Aventura | 1hrs 30 min | +7", "Accion | 2hrs 4 min | +14", "Drama | 1hrs 31 min | +14", "Accion | 1hrs 30 min | +18"]
         const moviesSinopsis = ["¿Podrás sobrevivir cinco noches? El terrorífico fenómeno del videojuego de terror se transforma en un escalofriante espectáculo cinematográfico.La película trata de un problemático guardia de seguridad que empieza a trabajar en Freddy Fazbear's Pizza. Mientras pasa su primera noche en el trabajo, se da cuenta de que el turno de noche en Freddy's no será tan fácil de superar.",
